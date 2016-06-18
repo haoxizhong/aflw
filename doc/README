@@ -1,0 +1,41 @@
+ 
+ Martin Koestinger, 2013
+ martin@koestinger.com
+
+Face Detector trained with OpenCV and AFLW
+------------------------------------------
+
+- Features LBP / Cascade
+- Results for FDDB and AFW included, see PDFs
+
+If you use this detector for scientific work please cite my PhD thesis. You can check it for further details.
+
+@PHDTHESIS{pt_koestinger13,
+    author = {Martin Koestinger},
+    title = {Efficient Metric Learning for Real-World Face Recognition},
+    school = {Graz University of Technology, Faculty of Computer Science},
+    year = {2013},
+weblink = {http://lrs.icg.tugraz.at/pubs/koestinger_phd_13.pdf}
+}
+
+Data is coming from Annotated Facial Landmarks in the Wild (AFLW)
+
+@INPROCEEDINGS{koestinger11b,
+    author = {Martin Koestinger and Paul Wohlhart and Peter M. Roth and Horst Bischof},
+    title = {Annotated Facial Landmarks in the Wild: A Large-scale, Real-world
+        Database for Facial Landmark Localization},
+    booktitle = {First IEEE International Workshop on Benchmarking Facial Image Analysis Technologies},
+    year = {2011},
+    weblink = {http://lrs.icg.tugraz.at/pubs/koestinger_befit_11.pdf}
+} 
+
+Getting Started
+---------------
+
+- using OpenCV facedetect
+facedetect.exe --cascade=koestinger_cascade_aflw_lbp.xml
+
+OpenCV Training Parameters
+--------------------------
+
+opencv_traincascade -data cascade -vec pos\samples.vec -bg neg\neg.dat -nstages 20 -nsplits 2 -minhitrate 0.999 -maxfalsealarm 0.5 -w 24 -h 24 -featureType LBP -mem 1024
